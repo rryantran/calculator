@@ -19,11 +19,27 @@ main {
 }
 
 #display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
   border: solid black 0.1rem;
   background-color: ivory;
   width: auto;
   height: 6.5rem;
   border-radius: 0.5rem;
+}
+
+.display-text {
+  margin: 0.5rem;
+}
+
+#eq {
+  font-size: 1.25rem;
+}
+
+#sol {
+  font-size: 2rem;
 }
 
 #all-btns {
