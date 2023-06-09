@@ -38,14 +38,14 @@ function display(num) {
 
 function clearDisplay() {
   subDisplay.textContent = "";
-  mainDisplay.textContent = "";
+  mainDisplay.textContent = "0";
 }
 
 function storeHistory(num) {
   firstNum = num;
 }
 
-function cleaHistory() {
+function clearHistory() {
   firstNum = "";
   operator = "";
   secondNum = "";
@@ -59,31 +59,35 @@ const operators = ["+", "-", "x", "÷"];
 const mainDisplay = document.getElementById("main");
 const subDisplay = document.getElementById("sub");
 
-const btns = document.querySelectorAll("button");
-btns.forEach((btn) => {
-  btn.addEventListener("click", function () {
-    if (this.className == "math operator" && firstNum) {
-      operator = this.textContent;
+const mathBtns = document.getElementById("math-btns");
+mathBtns.addEventListener("click", (e) => {
+  if (e.target.nodeName == "BUTTON") {
+    if (e.target.className == "operator" && firstNum && !operator) {
+      operator = e.target.textContent;
       display();
-      console.log(firstNum, operator, secondNum);
-    } else if (this.className == "math num" && !operator) {
-      firstNum += this.textContent;
-      display(firstNum);
-      console.log(firstNum, operator, secondNum);
-    } else if (this.className == "math num" && operator) {
-      secondNum += this.textContent;
-      display(secondNum);
-      console.log(firstNum, operator, secondNum);
-    } else if (this.className == "math equals") {
+    } else if (e.target.className == "num") {
+      if (!operator) {
+        firstNum += e.target.textContent;
+        display(firstNum);
+      } else {
+        secondNum += e.target.textContent;
+        display(secondNum);
+      }
+    } else if (e.target.id == "equals" && firstNum) {
       subDisplay.textContent = `${firstNum} ${operator} ${secondNum}`;
       let solution = operate(operator, firstNum, secondNum);
       display(solution);
       storeHistory(solution);
       operator = "";
       secondNum = "";
-    } else if (this.className == "erase clear") {
-      cleaHistory();
-      clearDisplay();
     }
-  });
+  }
+});
+
+const btns = document.getElementById("btns");
+btns.addEventListener("click", (e) => {
+  if (e.target.id == "clear") {
+    clearDisplay();
+    clearHistory();
+  }
 });
