@@ -77,9 +77,13 @@ mathBtns.addEventListener("click", (e) => {
       subDisplay.textContent = `${firstNum} ${operator} ${secondNum}`;
       let solution = operate(operator, firstNum, secondNum);
       display(solution);
-      storeHistory(solution);
       operator = "";
       secondNum = "";
+      if (solution != "error") {
+        storeHistory(solution);
+      } else {
+        firstNum = "";
+      }
     }
   }
 });
