@@ -54,7 +54,6 @@ function clearHistory() {
 let firstNum = "";
 let operator = "";
 let secondNum = "";
-const operators = ["+", "-", "x", "÷"];
 
 const mainDisplay = document.getElementById("main");
 const subDisplay = document.getElementById("sub");
@@ -73,16 +72,25 @@ mathBtns.addEventListener("click", (e) => {
         secondNum += e.target.textContent;
         display(secondNum);
       }
-    } else if (e.target.id == "equals" && firstNum) {
+    } else if (
+      (e.target.id == "equals" || e.target.className == "operator") &&
+      firstNum &&
+      secondNum
+    ) {
       subDisplay.textContent = `${firstNum} ${operator} ${secondNum}`;
       let solution = operate(operator, firstNum, secondNum);
       display(solution);
-      operator = "";
       secondNum = "";
       if (solution != "error") {
         storeHistory(solution);
+        if (e.target.className == "operator") {
+          operator = e.target.textContent;
+        } else {
+          operator = "";
+        }
       } else {
         firstNum = "";
+        operator = "";
       }
     }
   }
