@@ -51,13 +51,16 @@ function clearHistory() {
   secondNum = "";
 }
 
+// inputs
 let firstNum = "";
 let operator = "";
 let secondNum = "";
 
+// displays
 const mainDisplay = document.getElementById("main");
 const subDisplay = document.getElementById("sub");
 
+// numbers, operators
 const mathBtns = document.getElementById("math-btns");
 mathBtns.addEventListener("click", (e) => {
   if (e.target.nodeName == "BUTTON") {
@@ -96,6 +99,7 @@ mathBtns.addEventListener("click", (e) => {
   }
 });
 
+// clear
 const btns = document.getElementById("btns");
 btns.addEventListener("click", (e) => {
   if (e.target.id == "clear") {
