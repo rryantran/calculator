@@ -1,5 +1,11 @@
-html {
+@font-face {
+  font-family: "Grotesk";
+  src: url(Grotesk.otf);
+}
+
+body {
   background-color: azure;
+  font-family: "Grotesk", sans-serif;
 }
 
 main {
@@ -82,5 +88,6 @@ button {
   width: 4rem;
   height: 4rem;
   background-color: ghostwhite;
+  font-family: inherit;
   border-radius: 0.5rem;
 }
