@@ -1,3 +1,7 @@
+html {
+  background-color: azure;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -10,7 +14,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: solid black 0.1rem;
+  border: solid black 0.2rem;
   background-color: dimgray;
   width: 22.5rem;
   height: 35rem;
@@ -24,7 +28,7 @@ main {
   justify-content: space-between;
   align-items: flex-end;
   border: solid black 0.1rem;
-  background-color: ivory;
+  background-color: aliceblue;
   width: auto;
   height: 6.5rem;
   border-radius: 0.5rem;
@@ -43,7 +47,7 @@ main {
   font-size: 2rem;
 }
 
-#all-btns {
+#btns {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -51,7 +55,7 @@ main {
   height: 25rem;
 }
 
-#btns {
+#clear-btn {
   display: flex;
   justify-content: space-around;
   width: auto;
@@ -59,7 +63,7 @@ main {
 }
 
 .erase {
-  width: 10rem;
+  width: 20.5rem;
   height: 2rem;
 }
 
@@ -77,4 +81,6 @@ main {
 button {
   width: 4rem;
   height: 4rem;
+  background-color: ghostwhite;
+  border-radius: 0.5rem;
 }
